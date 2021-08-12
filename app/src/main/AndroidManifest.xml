@@ -3,6 +3,7 @@
     package="com.example.scavengerar">
 
     <application
+        android:name = ".ScavengerApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
