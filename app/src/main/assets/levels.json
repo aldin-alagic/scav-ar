@@ -3,16 +3,16 @@
     "id": 1,
     "name": "Level 1",
     "description": "First level",
-    "created_at": "2021-08-08 16:46:53",
-    "image": "",
-    "order": 1
+    "createdAt": 1628813725,
+    "imageUrl": "",
+    "difficulty": 1
   },
   {
     "id": 2,
     "name": "Level 2",
     "description": "Second level",
-    "created_at": "2021-08-08 16:47:08",
-    "image": "",
-    "order": 2
+    "createdAt": 1628813725,
+    "imageUrl": "",
+    "difficulty": 2
   }
 ]
