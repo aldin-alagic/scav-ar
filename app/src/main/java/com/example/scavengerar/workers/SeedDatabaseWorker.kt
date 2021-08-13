@@ -14,6 +14,7 @@ import com.example.scavengerar.data.Level
 import com.example.scavengerar.utilities.ITEMS_DATA_FILENAME
 import com.example.scavengerar.utilities.LEVELS_DATA_FILENAME
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonReader
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
@@ -34,20 +35,22 @@ class SeedDatabaseWorker @AssistedInject constructor (
             if (levelsFilename != null && itemsFilename != null) {
                 applicationContext.assets.open(levelsFilename).use { inputStream ->
                     JsonReader(inputStream.reader()).use { jsonReader ->
-                        val levels: List<Level> = Gson().fromJson(jsonReader, Level::class.java)
-                        val items: List<Item> = Gson().fromJson(jsonReader, Item::class.java)
+                        val levelType = object : TypeToken<List<Level>>() {}.type
+                        val levels: List<Level> = Gson().fromJson(jsonReader, levelType)
                         val database = AppDatabase.getInstance(applicationContext)
                         database.levelDao().insertAll(levels)
-                        database.itemDao().insertAll(items)
-
-                        val dbLevel = database.levelDao().getLevel(1)
-                        val dbItem = database.itemDao().getItem(1)
-                        dbLevel.collect { value ->  Log.i(TAG, "dbLevels - $value")}
-                        dbItem.collect { value ->  Log.i(TAG, "dbLevels - $value")}
-                        Log.i(TAG, "Databases seeded")
-                        Result.success()
                     }
                 }
+                applicationContext.assets.open(itemsFilename).use { inputStream ->
+                    JsonReader(inputStream.reader()).use { jsonReader ->
+                        val itemType = object : TypeToken<List<Item>>() {}.type
+                        val items: List<Item> = Gson().fromJson(jsonReader, itemType)
+                        val database = AppDatabase.getInstance(applicationContext)
+                        database.itemDao().insertAll(items)
+                    }
+                }
+
+                Result.success()
             } else {
                 Log.e(TAG, "Error seeding database - no valid filename")
                 Result.failure()
