@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
  */
 @Dao
 interface LevelDao {
-    @Query("SELECT * FROM level ORDER BY `order`")
+    @Query("SELECT * FROM level ORDER BY difficulty")
     fun getLevels(): Flow<List<Level>>
 
     @Query("SELECT * FROM level WHERE id = :levelId")

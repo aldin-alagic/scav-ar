@@ -16,7 +16,7 @@ data class Level(
     @ColumnInfo(name = "name")  val name: String,
     @ColumnInfo(name = "description")  val description: String,
     @ColumnInfo(name = "image")  val imageUrl: String,
-    @ColumnInfo(name = "order")  val order: Int,
+    @ColumnInfo(name = "difficulty")  val difficulty: Int,
     @ColumnInfo(name = "created_at")  val createdAt: Long,
 ) {
     override fun toString() = name
