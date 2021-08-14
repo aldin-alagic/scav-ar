@@ -2,6 +2,7 @@
 buildscript {
 
     ext {
+        accompanist_version = "0.16.0"
         app_compat_version = "1.3.1"
         compose_version = "1.0.1"
         constraint_layout_version = "2.1.0"
@@ -10,6 +11,7 @@ buildscript {
         gradle_version = "7.0.0"
         gson_version = "2.8.7"
         hilt_version = "2.38.1"
+        landscapist_version = "1.3.2"
         lifecycle_version = "2.3.1"
         junit_version = "4.13.2"
         kotlin_version = "1.5.21"

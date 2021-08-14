@@ -103,4 +103,5 @@ dependencies {
     androidTestImplementation "androidx.test:rules:$test_rules_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
     androidTestImplementation "androidx.work:work-testing:$work_version"
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
 }
