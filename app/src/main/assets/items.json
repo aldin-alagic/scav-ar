@@ -34,9 +34,9 @@
   {
     "id": 5,
     "levelId": 2,
-    "description": "Scissors",
+    "description": "Knife",
     "createdAt": 1628813725,
-    "imageUrl": "items/bottle.png",
-    "name": "SCISSORS"
+    "imageUrl": "items/knife.png",
+    "name": "KNIFE"
   }
 ]
