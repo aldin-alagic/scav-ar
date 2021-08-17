@@ -11,24 +11,28 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.example.scavengerar.R
 
 private val BlueThemeLight = lightColors(
     primary = blue,
-    secondary = Color.White,
-    onPrimary = Color.White,
-    surface = Color.White,
+    secondary = gray,
+    secondaryVariant = Color.White,
     primaryVariant = blue,
-    secondaryVariant = grey,
+    surface = Color.White,
+    background = blue
 )
 
 private val BlueThemeDark = darkColors(
     primary = darkBlue,
-    secondary = Color.Gray,
-    onPrimary = Color.Gray,
-    surface = Color.Gray,
-    primaryVariant = darkBlue,
-    secondaryVariant = grey,
+    primaryVariant = Color.Gray,
+    secondary = lightGray,
+    secondaryVariant = lightGray,
+    surface = darkGray,
+    background = Color.Black,
 )
+
+private val DarkImages = Images(lockupLogo = R.drawable.logo)
+private val LightImages = Images(lockupLogo = R.drawable.logo)
 
 @Composable
 fun BlueTheme(
@@ -40,7 +44,7 @@ fun BlueTheme(
     } else {
         BlueThemeLight
     }
-    Theme(darkTheme, colors, content)
+    ScavArTheme(darkTheme, colors, content)
 }
 
 private val LightElevation = Elevations()
@@ -48,14 +52,17 @@ private val LightElevation = Elevations()
 private val DarkElevation = Elevations(card = 1.dp)
 
 @Composable
-private fun Theme(
+private fun ScavArTheme(
     darkTheme: Boolean,
     colors: Colors,
     content: @Composable () -> Unit
 ) {
     val elevation = if (darkTheme) DarkElevation else LightElevation
+    val images = if (darkTheme) DarkImages else LightImages
+
     CompositionLocalProvider(
         LocalElevations provides elevation,
+        LocalImages provides images
     ) {
         MaterialTheme(
             colors = colors,
@@ -70,7 +77,7 @@ private fun Theme(
  * Alternate to [MaterialTheme] allowing us to add our own theme systems (e.g. [Elevations]) or to
  * extend [MaterialTheme]'s types e.g. return our own [Colors] extension
  */
-object Theme {
+object ScavArTheme {
 
     /**
      * Proxy to [MaterialTheme]
