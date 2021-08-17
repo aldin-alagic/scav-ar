@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
  */
 @Dao
 interface ItemDao {
-    @Query("SELECT * FROM item ORDER BY level_id")
+    @Query("SELECT * FROM item WHERE level_id = 1")
     fun getItems(): Flow<List<Item>>
 
     @Query("SELECT * FROM item WHERE id = :itemId")
