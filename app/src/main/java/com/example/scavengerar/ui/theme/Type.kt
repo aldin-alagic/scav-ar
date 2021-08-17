@@ -56,7 +56,7 @@ val typography = typographyFromDefaults(
     ),
     h6 = TextStyle(
         fontFamily = fonts,
-        fontWeight = FontWeight.W500,
+        fontWeight = FontWeight.W600,
         lineHeight = 28.sp
     ),
     subtitle1 = TextStyle(
