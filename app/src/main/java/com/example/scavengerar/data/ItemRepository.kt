@@ -10,9 +10,11 @@ import javax.inject.Singleton
  * query execution off of the main thread.
  */
 @Singleton
-class ItemRepository @Inject constructor(private val itemDao: ItemDao) {
+class ItemRepository @Inject constructor(private val itemDao: ItemDao, private val levelItemDao: LevelItemDao) {
 
     fun getItems() = itemDao.getItems()
 
     fun getItem(itemId: Int) = itemDao.getItem(itemId)
+
+    fun getActiveLevelItems(userId: Int) = levelItemDao.getActiveLevelItems(userId)
 }
