@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "roleId": 1,
+    "premium": false,
+    "email": "aldin.alagicc@gmail.com",
+    "username": "jdoe",
+    "fullName": "Jon Doe",
+    "password": "$2b$10$YKbuLCVSjnFeIWVuF/444.xIIIh1uhhAPHNMWfM8xEyNAm/OoVvVW",
+    "activated": false,
+    "deleted": false,
+    "newsletter": false,
+    "loginAttempts": 0,
+    "createdAt": 1628813725,
+    "profilePhotoUrl": "",
+    "about": ""
+  }
+]
+
