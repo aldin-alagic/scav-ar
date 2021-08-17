@@ -2,9 +2,7 @@ package com.example.scavengerar.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.scavengerar.data.AppDatabase
-import com.example.scavengerar.data.ItemDao
-import com.example.scavengerar.data.LevelDao
+import com.example.scavengerar.data.*
 import com.example.scavengerar.utilities.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
@@ -31,5 +29,25 @@ object DatabaseModule {
     @Provides
     fun provideItemDao(database: AppDatabase): ItemDao {
         return database.itemDao()
+    }
+
+    @Provides
+    fun provideLevelItemDao(database: AppDatabase): LevelItemDao {
+        return database.levelItemDao()
+    }
+
+    @Provides
+    fun provideRoleDao(database: AppDatabase): RoleDao {
+        return database.roleDao()
+    }
+
+    @Provides
+    fun provideUserDao(database: AppDatabase): UserDao {
+        return database.userDao()
+    }
+
+    @Provides
+    fun provideUserLevelDao(database: AppDatabase): UserLevelDao {
+        return database.userLevelDao()
     }
 }
