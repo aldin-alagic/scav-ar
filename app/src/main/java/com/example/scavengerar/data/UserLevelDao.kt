@@ -18,7 +18,7 @@ interface UserLevelDao {
     fun getUserLevel(userId: Int, levelId: Int): Flow<UserLevel>
 
     @Query("SELECT * FROM user_level WHERE user_id = :userId AND completed = 0")
-    fun getUserActiveLevel(userId: Int): Flow<UserLevel>
+    fun getActiveLevel(userId: Int): Flow<UserLevel>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(users: List<UserLevel>)

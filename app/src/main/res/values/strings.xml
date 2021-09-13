@@ -7,4 +7,5 @@
     <string name="items_screen">ITEMS</string>
     <string name="levels_screen">LEVELS</string>
     <string name="scanner_screen">AR</string>
+    <string name="permission_message">Permissions not granted by the user.</string>
 </resources>

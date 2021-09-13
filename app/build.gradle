@@ -110,6 +110,15 @@ dependencies {
     // Accompanist
     implementation "com.google.accompanist:accompanist-insets:$accompanist_version"
 
+    // Camera X
+    implementation "androidx.camera:camera-core:$camerax_version"
+    implementation "androidx.camera:camera-camera2:$camerax_version"
+    implementation "androidx.camera:camera-lifecycle:$camerax_version"
+    implementation "androidx.camera:camera-view:$camerax_view_version"
+
+    // TFLite
+    implementation "org.tensorflow:tensorflow-lite-task-vision:$tensorflow_version"
+
     // Testing dependencies
     androidTestImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test:core-ktx:$test_rules_version"

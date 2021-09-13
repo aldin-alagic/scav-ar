@@ -4,7 +4,6 @@ import androidx.activity.compose.BackHandler
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
-import androidx.compose.material.icons.outlined.TableRows
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -14,7 +13,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.scavengerar.ui.ItemsScreen
+import com.example.scavengerar.ui.ScanScreen
 import com.example.scavengerar.viewmodels.ItemViewModel
+import com.example.scavengerar.viewmodels.LevelViewModel
+import com.example.scavengerar.viewmodels.ScanViewModel
 
 /**
  * Destinations used in the [ScavArApplication].
@@ -50,14 +52,24 @@ fun NavGraph(
                 finishActivity()
             }
             val itemViewModel = hiltViewModel<ItemViewModel>()
-            ItemsScreen(itemViewModel)
+            ItemsScreen(modifier, itemViewModel)
         }
+
+        composable(Screen.Scanner.route) {
+            BackHandler {
+                finishActivity()
+            }
+            val scanViewModel = hiltViewModel<ScanViewModel>()
+            val levelViewModel = hiltViewModel<LevelViewModel>()
+            ScanScreen(scanViewModel, levelViewModel)
+        }
+
         composable(Screen.Levels.route) {
             BackHandler {
                 finishActivity()
             }
             val itemViewModel = hiltViewModel<ItemViewModel>()
-            ItemsScreen(itemViewModel)
+            ItemsScreen(modifier, itemViewModel)
         }
     }
 }

@@ -10,9 +10,11 @@ import javax.inject.Singleton
  * query execution off of the main thread.
  */
 @Singleton
-class LevelRepository @Inject constructor(private val levelDao: LevelDao) {
+class LevelRepository @Inject constructor(private val levelDao: LevelDao, private val userLevelDao: UserLevelDao) {
 
     fun getLevels() = levelDao.getLevels()
 
     fun getLevel(levelId: Int) = levelDao.getLevel(levelId)
+
+    fun getActiveLevel(userId: Int) = userLevelDao.getActiveLevel(userId)
 }

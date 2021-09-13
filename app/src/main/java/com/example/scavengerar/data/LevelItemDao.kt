@@ -18,6 +18,9 @@ interface LevelItemDao {
     fun getLevelItem(itemId: Int): Flow<LevelItem>
 
     @Query("SELECT item.id, item.name, item.description, item.image, EXISTS(SELECT * FROM level_item WHERE item_id = item.id) as completed FROM item JOIN user_level ON item.level_id = user_level.level_id WHERE user_level.user_id = :userId AND user_level.completed = 0")
+    fun getLevelItems(userId: Int): Flow<List<ActiveLevelItem>>
+
+    @Query("SELECT item.id, item.name, item.description, item.image, EXISTS(SELECT * FROM level_item WHERE item_id = item.id) as completed FROM item JOIN user_level ON item.level_id = user_level.level_id WHERE user_level.user_id = :userId AND user_level.completed = 0 AND completed = 0")
     fun getActiveLevelItems(userId: Int): Flow<List<ActiveLevelItem>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

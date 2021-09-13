@@ -1,5 +1,7 @@
 package com.example.scavengerar.data
 
+import androidx.annotation.NonNull
+import androidx.room.ColumnInfo
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -16,5 +18,13 @@ class ItemRepository @Inject constructor(private val itemDao: ItemDao, private v
 
     fun getItem(itemId: Int) = itemDao.getItem(itemId)
 
+    fun getLevelItems(userId: Int) = levelItemDao.getLevelItems(userId)
+
     fun getActiveLevelItems(userId: Int) = levelItemDao.getActiveLevelItems(userId)
+
+
+    suspend fun markItemAsFound(itemId: Int, userLevelId: Int) {
+        val item = LevelItem(itemId, userLevelId, System.currentTimeMillis())
+        levelItemDao.insert(item)
+    }
 }

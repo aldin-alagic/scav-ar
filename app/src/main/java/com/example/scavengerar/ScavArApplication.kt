@@ -96,7 +96,7 @@ fun TopBar() {
 @Composable
 fun BottomBar(navController: NavController) {
     BottomNavigation(
-        Modifier.navigationBarsHeight(additional = 56.dp),
+        Modifier.navigationBarsHeight(56.dp),
         backgroundColor = MaterialTheme.colors.surface,
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()

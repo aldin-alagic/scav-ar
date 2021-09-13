@@ -2,10 +2,10 @@
   {
     "id": 1,
     "levelId": 1,
-    "description": "Pen",
+    "description": "Remote",
     "createdAt": 1628813725,
     "imageUrl": "items/pen.png",
-    "name": "PEN"
+    "name": "REMOTE"
   },
   {
     "id": 2,

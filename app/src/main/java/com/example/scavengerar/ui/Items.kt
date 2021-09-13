@@ -55,9 +55,9 @@ import com.google.accompanist.insets.statusBarsPadding
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
-fun ItemsScreen(viewModel: ItemViewModel) {
+fun ItemsScreen(modifier: Modifier, viewModel: ItemViewModel) {
     Column(
-        modifier = Modifier.statusBarsPadding().navigationBarsPadding()
+        modifier
     ) {
         Text(
             text = stringResource(R.string.start_scaning),
@@ -83,7 +83,7 @@ fun Loading() {
 fun Items(
     viewModel: ItemViewModel
 ) {
-    val items by viewModel.getActiveLevel(1).observeAsState(initial = emptyList())
+    val items by viewModel.getLevelItems(1).observeAsState(initial = emptyList())
 
     if (items.isEmpty()) {
         Loading()
