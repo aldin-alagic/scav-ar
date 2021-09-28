@@ -72,7 +72,7 @@ fun Scan(scan: Scan?) {
     ) {
         if (scan != null) {
             Text(
-                modifier = Modifier.fillMaxWidth().padding(bottom = 64.dp),
+                modifier = Modifier.fillMaxWidth().padding(bottom = 50.dp),
                 text = scan.text.toUpperCase(),
                 textAlign = TextAlign.Center,
                 fontSize = 20.sp,
