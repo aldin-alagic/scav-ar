@@ -13,10 +13,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.scavengerar.ui.ItemsScreen
+import com.example.scavengerar.ui.LevelsScreen
 import com.example.scavengerar.ui.ScanScreen
 import com.example.scavengerar.viewmodels.ItemViewModel
 import com.example.scavengerar.viewmodels.LevelViewModel
 import com.example.scavengerar.viewmodels.ScanViewModel
+import java.util.logging.Level
 
 /**
  * Destinations used in the [ScavArApplication].
@@ -68,8 +70,8 @@ fun NavGraph(
             BackHandler {
                 finishActivity()
             }
-            val itemViewModel = hiltViewModel<ItemViewModel>()
-            ItemsScreen(modifier, itemViewModel)
+            val levelsViewModel = hiltViewModel<LevelViewModel>()
+            LevelsScreen(modifier, levelsViewModel)
         }
     }
 }
