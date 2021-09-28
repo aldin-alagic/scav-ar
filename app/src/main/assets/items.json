@@ -2,10 +2,10 @@
   {
     "id": 1,
     "levelId": 1,
-    "description": "Remote",
+    "description": "Vase",
     "createdAt": 1628813725,
-    "imageUrl": "items/pen.png",
-    "name": "REMOTE"
+    "imageUrl": "items/vase.png",
+    "name": "VASE"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "description": "Bottle",
     "createdAt": 1628813725,
     "imageUrl": "items/bottle.png",
-    "name": "GLASS"
+    "name": "BOTTLE"
   },
   {
     "id": 3,
