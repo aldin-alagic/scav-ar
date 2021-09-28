@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.scavengerar.ObjectAnalyzer
@@ -33,7 +34,7 @@ fun ScanScreen(scanViewModel: ScanViewModel, levelViewModel: LevelViewModel) {
     val context = LocalContext.current
     SimpleCameraPreview(ObjectAnalyzer(context) { newScan -> scanViewModel.currentScan = newScan})
 
-    var scan = scanViewModel.currentScan
+    val scan = scanViewModel.currentScan
 
     val items by scanViewModel.getActiveLevelItems(1).observeAsState(initial = emptyList())
     val activeLevel by levelViewModel.getActiveLevel(1).observeAsState()
@@ -67,25 +68,16 @@ fun Scan(scan: Scan?) {
     Column(
         Modifier
             .fillMaxSize()
-            .padding(64.dp), verticalArrangement = Arrangement.Bottom
+            .padding(81.dp), verticalArrangement = Arrangement.Bottom
     ) {
         if (scan != null) {
             Text(
-                modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp),
-                text = scan.text.toUpperCase(Locale.getDefault()),
+                modifier = Modifier.fillMaxWidth().padding(bottom = 64.dp),
+                text = scan.text.toUpperCase(),
                 textAlign = TextAlign.Center,
                 fontSize = 20.sp,
                 color = Color.Cyan
             )
-        }
-        Row {
-            Button( onClick = { /*TODO*/ }, Modifier.weight(0.4f)) {
-                Text("Scan")
-            }
-            Spacer(Modifier.weight(0.1f))
-            Button( onClick = { /*TODO*/ }, Modifier.weight(0.4f)) {
-                Text("Clear")
-            }
         }
     }
 }
